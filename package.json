@@ -1,0 +1,13 @@
+{
+  "name": "ets-github-action",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "Joseph Cheung",
+  "license": "MIT",
+  "dependencies": {
+    "@actions/core": "^1.2.6",
+    "@actions/github": "^4.0.0",
+    "adm-zip": "^0.4.16",
+    "node-fetch": "^2.6.1"
+  }
+}
