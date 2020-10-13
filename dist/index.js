@@ -11,7 +11,9 @@ const core = __webpack_require__(6361);
 const github = __webpack_require__(7403);
 
 const main = async () => {
-  const fileUrl = await github.getOctokit().repos.downloadArchive({
+  const myToken = core.getInput('githubToken');
+  const octokit = github.getOctokit(myToken);
+  const fileUrl = await octokit.repos.downloadArchive({
     owner: github.context.repo.owner,
     repo: github.context.repo.repo,
     archive_format: "zipball",
