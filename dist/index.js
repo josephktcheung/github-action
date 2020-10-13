@@ -19,7 +19,7 @@ const main = async () => {
     archive_format: "zipball",
     ref: github.context.ref,
   });
-  console.log("archive", archive);
+  console.log("fileUrl", fileUrl);
   
   const response = await fetch(fileUrl);
 
