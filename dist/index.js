@@ -24,7 +24,10 @@ const main = async () => {
 
   const zip = new AdmZip(response.buffer());
   const zipEntries = zip.getEntries();
-  zipEntries.forEach((entry) => console.log(entry.toString()));
+  console.log("zip entries", zipEntries);
+  zipEntries.forEach((entry) => {
+    console.log(entry.toString());
+  });
 }
 
 main();
