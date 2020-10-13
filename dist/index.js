@@ -21,10 +21,8 @@ const main = async () => {
   });
   
   const response = await fetch(fileUrl.url);
-  console.log("response", response);
-  const buffer = response.buffer();
+  const buffer = await response.buffer();
 
-  console.log("buffer", buffer);
   const zip = new AdmZip(buffer);
   const zipEntries = zip.getEntries();
   console.log("zip entries", zipEntries);
