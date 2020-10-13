@@ -4,6 +4,9 @@ inputs:
   githubToken:
     description: "Github token"
     required: true
+  dropboxToken:
+    description: "Dropbox token"
+    required: true
 runs:
   using: 'node12'
   main: 'dist/index.js'

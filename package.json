@@ -8,6 +8,11 @@
     "@actions/core": "^1.2.6",
     "@actions/github": "^4.0.0",
     "adm-zip": "^0.4.16",
+    "dropbox": "^7.1.0",
     "node-fetch": "^2.6.1"
+  },
+  "devDependencies": {
+    "@types/adm-zip": "^0.4.33",
+    "@types/node-fetch": "^2.5.7"
   }
 }
