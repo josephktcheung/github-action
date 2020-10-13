@@ -31,13 +31,18 @@ const main = async () => {
   const zipEntries = zip.getEntries();
   console.log("zip entries", zipEntries);
   for (const entry of zipEntries) {
-    const path = entry.entryName.split("/").slice(1).join("/");
-    const response = await dbx.filesUpload({
-      path: `/${github.context.repo.repo}/${path}`,
-      contents: entry.getData(),
-    });
+    const path = `/${github.context.repo.repo}/${entry.entryName.split("/").slice(1).join("/")}`;
 
-    console.log("dbx response", response);
+    console.log("path", path);
+    try {
+      const response = await dbx.filesUpload({
+        path,
+        contents: entry.getData(),
+      });
+      console.log("dbx response", response);
+    } catch (error) {
+      console.log("dbx error", error);
+    }
   }
   // fo  zipEntries.forEach((entry) => {
   //   console.log(entry.toString());

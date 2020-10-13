@@ -12305,12 +12305,18 @@ const main = () => __awaiter(undefined, void 0, void 0, function* () {
     const zipEntries = zip.getEntries();
     console.log("zip entries", zipEntries);
     for (const entry of zipEntries) {
-        const path = entry.entryName.split("/").slice(1).join("/");
-        const response = yield dbx.filesUpload({
-            path: `/${_actions_github__WEBPACK_IMPORTED_MODULE_1__.context.repo.repo}/${path}`,
-            contents: entry.getData(),
-        });
-        console.log("dbx response", response);
+        const path = `/${_actions_github__WEBPACK_IMPORTED_MODULE_1__.context.repo.repo}/${entry.entryName.split("/").slice(1).join("/")}`;
+        console.log("path", path);
+        try {
+            const response = yield dbx.filesUpload({
+                path,
+                contents: entry.getData(),
+            });
+            console.log("dbx response", response);
+        }
+        catch (error) {
+            console.log("dbx error", error);
+        }
     }
     // fo  zipEntries.forEach((entry) => {
     //   console.log(entry.toString());
