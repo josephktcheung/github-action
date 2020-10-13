@@ -1,5 +1,9 @@
 name: 'ETS Github Dropbox Sync'
 description: 'Sync github files to dropbox'
+inputs:
+  githubToken:
+    description: "Github token"
+    required: true
 runs:
   using: 'node12'
   main: 'dist/index.js'
