@@ -4,7 +4,9 @@ const core = require("@actions/core");
 const github = require("@actions/github");
 
 const main = async () => {
-  const fileUrl = await github.getOctokit().repos.downloadArchive({
+  const myToken = core.getInput('githubToken');
+  const octokit = github.getOctokit(myToken);
+  const fileUrl = await octokit.repos.downloadArchive({
     owner: github.context.repo.owner,
     repo: github.context.repo.repo,
     archive_format: "zipball",
