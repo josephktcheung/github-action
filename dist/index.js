@@ -19,9 +19,8 @@ const main = async () => {
     archive_format: "zipball",
     ref: github.context.ref,
   });
-  console.log("fileUrl", fileUrl);
   
-  const response = await fetch(fileUrl);
+  const response = await fetch(fileUrl.url);
 
   const zip = new AdmZip(response.buffer());
   const zipEntries = zip.getEntries();
