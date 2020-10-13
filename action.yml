@@ -3,5 +3,3 @@ description: 'Sync github files to dropbox'
 runs:
   using: 'node12'
   main: 'dist/index.js'
-  with:
-    githubToken: ${{ secrets.GITHUB_TOKEN }}
